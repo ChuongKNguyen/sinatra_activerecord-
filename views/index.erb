@@ -5,11 +5,11 @@
 </head>
 <body>
 	<% if session[:user_id] %>
-		<a href="/sign_out">Log Out</a> 
+		<a href="/sign_out">Sign Out</a> 
 		<h1>Hello <%= @user.name %> </h1>
 		You are logged in as <%= @user.email %>
 	<% else %>
-		<a href="/sign_in">Log In</a> 
+		<a href="/sign_in">Sign In</a> | <a href="/sign_up">Sign Up</a>
 	<% end %>
 
 	<%= flash[:notice] if flash[:notice] %>

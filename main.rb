@@ -64,6 +64,16 @@ get "/sign_out" do
     redirect "/"    
 end
 
+get "/sign_up" do
+    erb :sign_up
+end
+
+post "/sessions/create" do
+    @user = User.create(name: params[:name], email: params[:email], birthday: params[:birthday], password: params[:password])
+    redirect "/"
+    # redirect "/profile/#{@user.id}"
+end
+
 post "/sessions/new" do 
     user = User.where(email: params[:email]).first
     if user && user.password == params[:password]
